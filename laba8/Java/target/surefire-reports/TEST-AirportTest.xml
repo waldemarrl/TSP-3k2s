@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AirportTest" time="0.335" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="AirportTest" time="0.397" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1251"/>
-    <property name="java.class.path" value="E:\Belstu\3k2s\TSP\lab8\Java\target\test-classes;E:\Belstu\3k2s\TSP\lab8\Java\target\classes;C:\Users\walde\.m2\repository\org\testng\testng\7.0.0-beta1\testng-7.0.0-beta1.jar;C:\Users\walde\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;"/>
+    <property name="java.class.path" value="E:\Belstu\3k2s\TSP\laba8\Java\target\test-classes;E:\Belstu\3k2s\TSP\laba8\Java\target\classes;C:\Users\walde\.m2\repository\org\testng\testng\7.0.0-beta1\testng-7.0.0-beta1.jar;C:\Users\walde\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="D:\Soft\Java\jdk22\bin"/>
-    <property name="sun.java.command" value="C:\Users\walde\AppData\Local\Temp\surefire2897622941154241986\surefirebooter-20240426213941690_3.jar C:\Users\walde\AppData\Local\Temp\surefire2897622941154241986 2024-04-26T21-39-40_364-jvmRun1 surefire-20240426213941690_1tmp surefire_0-20240426213941690_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\walde\AppData\Local\Temp\surefire14347640179985332368\surefirebooter-20240427084938994_3.jar C:\Users\walde\AppData\Local\Temp\surefire14347640179985332368 2024-04-27T08-49-38_827-jvmRun1 surefire-20240427084938994_1tmp surefire_0-20240427084938994_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="E:\Belstu\3k2s\TSP\lab8\Java\target\test-classes;E:\Belstu\3k2s\TSP\lab8\Java\target\classes;C:\Users\walde\.m2\repository\org\testng\testng\7.0.0-beta1\testng-7.0.0-beta1.jar;C:\Users\walde\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;"/>
+    <property name="surefire.test.class.path" value="E:\Belstu\3k2s\TSP\laba8\Java\target\test-classes;E:\Belstu\3k2s\TSP\laba8\Java\target\classes;C:\Users\walde\.m2\repository\org\testng\testng\7.0.0-beta1\testng-7.0.0-beta1.jar;C:\Users\walde\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\walde"/>
     <property name="user.language" value="ru"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2024-03-19"/>
     <property name="java.home" value="D:\Soft\Java\jdk22"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="E:\Belstu\3k2s\TSP\lab8\Java"/>
+    <property name="basedir" value="E:\Belstu\3k2s\TSP\laba8\Java"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\walde\AppData\Local\Temp\surefire2897622941154241986\surefirebooter-20240426213941690_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\walde\AppData\Local\Temp\surefire14347640179985332368\surefirebooter-20240427084938994_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22+36-2370"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\walde\AppData\Local\Temp\"/>
     <property name="java.version" value="22"/>
-    <property name="user.dir" value="E:\Belstu\3k2s\TSP\lab8\Java"/>
+    <property name="user.dir" value="E:\Belstu\3k2s\TSP\laba8\Java"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -60,7 +60,7 @@
   </properties>
   <testcase name="test3" classname="AirportTest" time="0.009"/>
   <testcase name="testExperimentalPlanesHasClassificationLevelHigherThanUnclassified" classname="AirportTest" time="0.0"/>
-  <testcase name="testGetPassengerPlaneWithMaxCapacity" classname="AirportTest" time="0.004">
+  <testcase name="testGetPassengerPlaneWithMaxCapacity" classname="AirportTest" time="0.008">
     <system-out><![CDATA[TEST testGetPassengerPlaneWithMaxCapacity started!
 ]]></system-out>
   </testcase>
