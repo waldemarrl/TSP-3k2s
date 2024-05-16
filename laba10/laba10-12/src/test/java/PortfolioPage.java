@@ -2,24 +2,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class PortfolioPage {
     private final WebDriver driver;
+    private final WebDriverWait wait;
     private final By addPortfolioLocator = By.xpath("//*[@id=\"fullColumn\"]/div[7]/div[3]/span");
     private final By listPortfolioLocator = By.xpath("//*[@id=\"addPortfolioPopup\"]/div[2]/div[1]");
     private final By activePortfolioLocator = By.xpath("//*[@id=\"addPortfolioPopup\"]/div[2]/div[2]");
     private final By portfolioNameLocator = By.xpath("//*[@id=\"newPortfolioText\"]");
     private final By createButtonLocator = By.xpath("//*[@id=\"createPortfolio\"]");
 
-    private final By ListLocator = By.xpath("//*[@id=\"tab_54085528\"]");
-    private final By ActiveLocator = By.xpath("//*[@id=\"tab_54085530\"]");
+    private final By listLocator = By.xpath("//*[@id=\"tab_54085528\"]");
+    private final By activeLocator = By.xpath("//*[@id=\"tab_54085530\"]");
     private final By searchPositionListLocator = By.xpath("//*[@id=\"searchText_54085528\"]");
     private final By searchPositionActiveLocator = By.xpath("//*[@id=\"searchText_addPos_54085530\"]");
-    private final By PositionLocator = By.xpath("//*[@id=\"searchRowIdtop_0\"]");
-    private final By PositionCountLocator = By.xpath("//*[@id=\"a_amount_54085530\"]");
-    private final By PositionCommissionLocator = By.xpath("//*[@id=\"a_comission_54085530\"]");
+    private final By positionLocator = By.xpath("//*[@id=\"searchRowIdtop_0\"]");
+    private final By positionCountLocator = By.xpath("//*[@id=\"a_amount_54085530\"]");
+    private final By positionCommissionLocator = By.xpath("//*[@id=\"a_comission_54085530\"]");
     private final By addPositionLocator = By.xpath("//*[@id=\"addPositionBtn_54085530\"]");
 
     private final By selectPositionListLocator = By.xpath("//*[@id=\"sort_13684\"]");
@@ -40,22 +42,11 @@ public class PortfolioPage {
 
     public PortfolioPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void goToPortfolioPage() {
         driver.get(PORTFOLIO_PAGE_URL);
-    }
-
-    private void createPortfolio(By portfolioTypeLocator, String portfolioName) {
-        WebElement addButton = driver.findElement(addPortfolioLocator);
-        addButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement portfolioTypeButton = driver.findElement(portfolioTypeLocator);
-        portfolioTypeButton.click();
-        WebElement inputPortfolioName = driver.findElement(portfolioNameLocator);
-        inputPortfolioName.sendKeys(portfolioName);
-        WebElement createButton = driver.findElement(createButtonLocator);
-        createButton.click();
     }
 
     public void createListPortfolio(String portfolioName) {
@@ -66,91 +57,77 @@ public class PortfolioPage {
         createPortfolio(activePortfolioLocator, portfolioName);
     }
 
-    public void addPositionInPortfolioList(String PositionName) {
-        goToPortfolio(ListLocator);
-        WebElement inputPositionName = driver.findElement(searchPositionListLocator);
-        inputPositionName.sendKeys(PositionName);
-        WebElement selectPositionsButton = driver.findElement(PositionLocator);
-        selectPositionsButton.click();
+
+    public void goToPortfolio(By portfolioLocator) {
+        clickElement(portfolioLocator);
     }
 
-    public void addPositionInPortfolioActive(String PositionName, String PositionCount, String PositionCommission) {
-        goToPortfolio(ActiveLocator);
-        WebElement inputPositionName = driver.findElement(searchPositionActiveLocator);
-        inputPositionName.sendKeys(PositionName);
-        WebElement selectPositionsButton = driver.findElement(PositionLocator);
-        selectPositionsButton.click();
-        WebElement inputPositionCount = driver.findElement(PositionCountLocator);
-        inputPositionCount.sendKeys(PositionCount);
-        WebElement inputPositionCommission = driver.findElement(PositionCommissionLocator);
-        inputPositionCommission.sendKeys(PositionCommission);
-        WebElement addPositionButton = driver.findElement(addPositionLocator);
-        addPositionButton.click();
+    private void clickElement(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
-    
-    public void deletePositionList() {
-        goToPortfolio(ListLocator);
 
-        WebElement hoverElement = driver.findElement(selectPositionListLocator);
+    private void enterText(By locator, String text) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        element.clear();
+        element.sendKeys(text);
+    }
+
+    private void hoverOverElement(By locator) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         Actions actions = new Actions(driver);
-        actions.moveToElement(hoverElement).perform();
+        actions.moveToElement(element).perform();
+    }
 
-        WebElement deleteButton = driver.findElement(deletePositionListLocator);
-        deleteButton.click();
+    private void createPortfolio(By portfolioTypeLocator, String portfolioName) {
+        clickElement(addPortfolioLocator);
+        clickElement(portfolioTypeLocator);
+        enterText(portfolioNameLocator, portfolioName);
+        clickElement(createButtonLocator);
+    }
+
+    public void addPositionInPortfolioList(String positionName) {
+        goToPortfolio(listLocator);
+        enterText(searchPositionListLocator, positionName);
+        clickElement(positionLocator);
+    }
+
+    public void addPositionInPortfolioActive(String positionName, String positionCount, String positionCommission) {
+        goToPortfolio(activeLocator);
+        enterText(searchPositionActiveLocator, positionName);
+        clickElement(positionLocator);
+        enterText(positionCountLocator, positionCount);
+        enterText(positionCommissionLocator, positionCommission);
+        clickElement(addPositionLocator);
+    }
+
+    public void deletePositionList() {
+        goToPortfolio(listLocator);
+        hoverOverElement(selectPositionListLocator);
+        clickElement(deletePositionListLocator);
     }
 
     public void closePositionActive() {
-        goToPortfolio(ActiveLocator);
-
-        WebElement selectPositionButton = driver.findElement(selectPositionActiveLocator);
-        selectPositionButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement deleteButton = selectPositionButton.findElement(closePositionActiveLocator);
-        deleteButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement confirmDeleteButton = driver.findElement(confirmClosePositionActiveLocator);
-        confirmDeleteButton.click();
+        goToPortfolio(activeLocator);
+        clickElement(selectPositionActiveLocator);
+        clickElement(closePositionActiveLocator);
+        clickElement(confirmClosePositionActiveLocator);
     }
 
     public void deletePositionActive() {
-        goToPortfolio(ActiveLocator);
-
-        WebElement operationButton = driver.findElement(openOperationPositionActiveLocator);
-        operationButton.click();
-
-        WebElement hoverElement = driver.findElement(selectPositionActiveLocator);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(hoverElement).perform();
-
-        WebElement selectPositionButton = driver.findElement(selectOperationPositionActiveLocator);
-        selectPositionButton.click();
-
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement deleteButton = selectPositionButton.findElement(deletePositionActiveLocator);
-        deleteButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement confirmDeleteButton = driver.findElement(confirmDeletePositionActiveLocator);
-        confirmDeleteButton.click();
+        goToPortfolio(activeLocator);
+        clickElement(openOperationPositionActiveLocator);
+        hoverOverElement(selectPositionActiveLocator);
+        clickElement(selectOperationPositionActiveLocator);
+        clickElement(deletePositionActiveLocator);
+        clickElement(confirmDeletePositionActiveLocator);
     }
 
-    public void editPositionActive(String PositionCount) {
-        goToPortfolio(ActiveLocator);
-        WebElement selectPositionButton = driver.findElement(selectPositionActiveLocator);
-        selectPositionButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        WebElement editButton = selectPositionButton.findElement(editPositionActiveLocator);
-        editButton.click();
-        WebElement inputPositionCount = driver.findElement(editCountPositionActiveLocator);
-        inputPositionCount.sendKeys(PositionCount);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-
-        WebElement confirmEditButton = driver.findElement(confirmEditCountPositionActiveLocator);
-        confirmEditButton.click();
+    public void editPositionActive(String positionCount) {
+        goToPortfolio(activeLocator);
+        clickElement(selectPositionActiveLocator);
+        clickElement(editPositionActiveLocator);
+        enterText(editCountPositionActiveLocator, positionCount);
+        clickElement(confirmEditCountPositionActiveLocator);
     }
 
-    public void goToPortfolio(By portfolioLocator) {
-        WebElement portfolioButton = driver.findElement(portfolioLocator);
-        portfolioButton.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    }
 }

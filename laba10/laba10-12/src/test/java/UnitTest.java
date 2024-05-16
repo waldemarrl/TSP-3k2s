@@ -45,92 +45,92 @@ public class UnitTest {
 //        loginPage.openLoginForm();
 //        Thread.sleep(3000);
 //        loginPage.login("lobanov.v.d@gmail.com", "06212111wgN");
-//        Thread.sleep(2000);
+//        //Thread.sleep(2000);
 //    }
 
     @Test
     public void PortfolioTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.createListPortfolio("myListPortfolio");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.createActivePortfolio("myActivePortfolio");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void addPositionInListTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.addPositionInPortfolioList("GAZP");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void addPositionInActiveTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.addPositionInPortfolioActive("GAZP", "10", "15");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
     
     @Test
     public void deletePositionInListTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.deletePositionList();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void closePositionInActiveTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.closePositionActive();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void deletePositionInActiveTest() throws InterruptedException {
         addPositionInActiveTest();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.deletePositionActive();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void editPositionInActiveTest() throws InterruptedException {
         addPositionInActiveTest();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.goToPortfolioPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         portfolioPage.editPositionActive("15");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void convertTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         convertPage.goToConvertPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         convertPage.convertUSD("15");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @Test
     public void drawTest() throws InterruptedException {
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         drawPage.goToDrawPage();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         drawPage.drawLine();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     @After
