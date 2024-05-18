@@ -1,0 +1,25 @@
+08:58:22.532 [main] INFO  utils.LoggerConf - Starting closePositionInActiveTest.
+08:58:29.396 [main] INFO  utils.LoggerConf - Navigated to Portfolio Page.
+08:58:31.718 [main] INFO  utils.LoggerConf - Closed position in active portfolio.
+08:58:31.718 [main] INFO  utils.LoggerConf - Finished closePositionInActiveTest.
+08:58:33.030 [main] INFO  utils.LoggerConf - Starting convertTest.
+08:58:38.136 [main] INFO  utils.LoggerConf - Navigated to Convert Page.
+08:58:40.233 [main] INFO  utils.LoggerConf - Converted 15 USD.
+08:58:40.233 [main] INFO  utils.LoggerConf - Finished convertTest.
+08:58:42.355 [main] INFO  utils.LoggerConf - Starting drawTest.
+08:58:44.726 [main] INFO  utils.LoggerConf - Navigated to Draw Page.
+08:58:46.120 [main] INFO  utils.LoggerConf - Drew line on the canvas.
+08:58:46.120 [main] INFO  utils.LoggerConf - Finished drawTest.
+08:58:47.331 [main] INFO  utils.LoggerConf - Starting editPositionInActiveTest.
+08:58:47.337 [main] INFO  utils.LoggerConf - Starting addPositionInActiveTest.
+08:58:53.372 [main] INFO  utils.LoggerConf - Navigated to Portfolio Page.
+08:58:56.366 [main] INFO  utils.LoggerConf - Added position 'GAZP' with quantity '10' and price '15' in active portfolio.
+08:58:56.366 [main] INFO  utils.LoggerConf - Finished addPositionInActiveTest.
+08:59:13.764 [main] INFO  utils.LoggerConf - Starting closePositionInActiveTest.
+08:59:17.166 [main] INFO  utils.LoggerConf - Navigated to Portfolio Page.
+08:59:18.842 [main] INFO  utils.LoggerConf - Closed position in active portfolio.
+08:59:18.843 [main] INFO  utils.LoggerConf - Finished closePositionInActiveTest.
+08:59:20.108 [main] INFO  utils.LoggerConf - Starting convertTest.
+08:59:24.642 [main] INFO  utils.LoggerConf - Navigated to Convert Page.
+08:59:27.001 [main] INFO  utils.LoggerConf - Converted 15 USD.
+08:59:27.001 [main] INFO  utils.LoggerConf - Finished convertTest.

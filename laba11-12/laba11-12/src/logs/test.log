@@ -1,0 +1,5 @@
+09:04:57.985 [main] INFO  utils.LoggerConf - Starting closePositionInActiveTest.
+09:05:02.165 [main] INFO  utils.LoggerConf - Navigated to Portfolio Page.
+09:05:13.722 [main] INFO  utils.LoggerConf - Starting convertTest.
+09:05:16.465 [main] INFO  utils.LoggerConf - Navigated to Convert Page.
+09:06:04.743 [main] INFO  utils.LoggerConf - Starting closePositionInActiveTest.
